@@ -1,30 +1,27 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view />
+  <left-nav class="left-nav"></left-nav>
+  <top-nav class="top-nav"></top-nav>
+  <div class="view-wrapper">
+    <router-view class="view" />
+  </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script setup lang="ts">
+import LeftNav from "./components/LeftNav.vue";
+import TopNav from "./components/TopNav.vue";
+</script>
 
-nav {
-  padding: 30px;
+<style scoped>
+.top-nav {
+  z-index: 8888;
 }
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.left-nav {
+  z-index: 7777;
 }
-
-nav a.router-link-exact-active {
-  color: #42b983;
+.view-wrapper {
+  margin-left: 275px;
+}
+.view {
+  margin-top: 50px;
 }
 </style>
